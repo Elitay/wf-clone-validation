@@ -18,7 +18,7 @@ process assembleCore_flye {
     script:
         cluster_dir = "trycycler/cluster_001"
         int coverage_target = params.assm_coverage * 3
-        int min_dep = (params.assm_coverage / 3) * 2
+        int min_dep = 30
         int min_len = 100
         int max_len = (meta.approx_size as Integer) * 1.2
         int exit_number = task.attempt <= 4 ? 1 : 0
