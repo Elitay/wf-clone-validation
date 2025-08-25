@@ -7,10 +7,11 @@ process assembleCore_flye {
     errorStrategy = {task.attempt <= 4 ? 'retry' : 'ignore'}
     maxRetries 4
     label "wfplasmid"
-    cpus params.threads
     memory "4GB"
     input:
         tuple val(meta), path(fastq)
+        val(num_cpus)
+        cpus {num_cpus}
     output:
         tuple val(meta), path("${meta.alias}.reconciled.fasta"), optional: true, emit: assembly
         tuple val(meta), path("${meta.alias}.downsampled.fastq"), optional: true, emit: downsampled
