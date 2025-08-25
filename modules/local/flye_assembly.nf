@@ -60,7 +60,7 @@ process assembleCore_flye {
     ############################################################
     STATUS="Failed to Subset reads" &&
     (trycycler subsample \
-        --count 3 \
+        --count 6 \
         --min_read_depth $min_dep \
         --reads "${meta.alias}.downsampled.fastq" \
         --out_dir sets \
