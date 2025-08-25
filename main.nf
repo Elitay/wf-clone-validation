@@ -614,7 +614,7 @@ workflow pipeline {
 
 
         // Core assembly and reconciliation
-        num_cpus = Math.min( Math.floor( process.executor.cpus / samples.size() ), params.threads ?: 1 )
+        num_cpus = Math.min( Math.floor( 64 / samples.size() ), params.threads ?: 1 )
         assemblies = assembleCore(sample_fastqs.sample,num_cpus)
         named_drafts = assemblies.assembly.groupTuple()
         named_samples = assemblies.downsampled.groupTuple()
