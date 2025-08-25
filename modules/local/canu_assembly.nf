@@ -18,7 +18,7 @@ process assembleCore_canu {
         tuple val(meta.alias), env(STATUS), emit: status
     script:
         String cluster_dir = "trycycler/cluster_001"
-        int coverage_target = params.assm_coverage * 3
+        int coverage_target = params.assm_coverage * 6
         int min_dep = 30
         int min_len = 100
         int max_len = (meta.approx_size as Integer) * 1.2
