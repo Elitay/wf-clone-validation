@@ -11,7 +11,6 @@ process assembleCore_canu {
     memory "7GB"
     input:
         tuple val(meta), path(fastq)
-        val(num_cpus)
     output:
         tuple val(meta), path("${meta.alias}.reconciled.fasta"), optional: true, emit: assembly
         tuple val(meta), path("${meta.alias}.downsampled.fastq"), optional: true, emit: downsampled
