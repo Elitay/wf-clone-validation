@@ -65,8 +65,8 @@ process checkIfEnoughReads {
         int max_read_length = meta.approx_size * 1.5
         def extra_args = "-a $min_read_length -b $max_read_length"
         def expected_depth = "$params.assm_coverage"
-        // a little heuristic to decide if we have enough data
-        int value = (expected_depth.toInteger()) * 0.8
+        // changed this to min value of 30, while still accepting higher target coverage - allowing for more accurate assemblies of most plasmids while also attempting assembly for low-coverage barcodes
+        int value = 30
         int bgzip_threads = task.cpus == 1 ? 1 : task.cpus - 1
     """
     STATUS="Failed due to insufficient reads"
