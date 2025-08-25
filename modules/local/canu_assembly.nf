@@ -7,7 +7,7 @@ process assembleCore_canu {
     errorStrategy = {task.attempt <= 4 ? 'retry' : 'ignore'}
     maxRetries 4
     label "canu"
-    cpus params.threads
+    cpus Math.max(4, params.threads ?: 4)
     memory "7GB"
     input:
         tuple val(meta), path(fastq)
