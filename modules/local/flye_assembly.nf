@@ -8,7 +8,7 @@ process assembleCore_flye {
     maxRetries 4
     label "wfplasmid"
     memory "4GB"
-    cpus params.cpus
+    cpus params.threads
     input:
         tuple val(meta), path(fastq)
     output:
